@@ -2,7 +2,6 @@ const express = require('express')
 const cookieSession = require('cookie-session')
 const bodyParser = require('body-parser')
 const path = require('path')
-const bcrpyt = require('bcrypt')
 
 const port = 3000
 const app = express()

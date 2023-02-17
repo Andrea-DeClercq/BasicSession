@@ -1,6 +1,8 @@
 const path = require('path')
 const express = require('express')
 const router = express.Router()
+const bcrypt = require('bcrypt')
+
 
 router.get('/login', (req, res, next) => {
     console.log('Session: ' + req.session.isLoggedIn);
@@ -30,9 +32,13 @@ router.get('/register', (req, res, next) => {
 })
 
 router.post('/register', (req, res, next) => {
-    req.session.isLoggedIn = true;
-    console.log('Session: ' + req.session.isLoggedIn);
-    res.redirect('/');
+    const {email, password} = req.body
+
+    const hashedPassword = bcrypt.hashSync(password, 10)
+
+    const comparePassword = bcrypt.compareSync(password, hashedPassword)
+
+    console.log(comparePassword)
 })
 
 module.exports = router
