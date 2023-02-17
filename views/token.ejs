@@ -12,7 +12,7 @@
     <main  class="container">
         <h1 class="mt-5">CSRF TOKEN</h1>
         <form class="row g-3" method="post" action="/token">
-            <input type="hidden" name="_csrf" value="jdljlj3jg84cmfjaldfalJFD#feaDKDKDKDKD==" />
+            <input type="hidden" name="_csrf" value="<%= token %>" />
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" name="name" id="name">
